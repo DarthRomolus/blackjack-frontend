@@ -1,9 +1,10 @@
 .main-container {
-  background-image: url("../assets/table2.png");
+  background-image: url("/assets/table2.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 100%;
   z-index: 1000;
+  filter: brightness(130%);
 }
