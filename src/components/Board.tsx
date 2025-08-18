@@ -1,15 +1,19 @@
 import { useState } from "react";
-import { type Hand, type GameState, type GameStatus } from "../types/types";
+import { GameStatus, type Hand, type GameState } from "../types/types";
 import GameButtons from "./gameButtons";
 import "../css/Board.css";
 import Start from "./startButton";
 import Restart from "./restart";
+import DealerHand from "./DealerHand";
+import PlayerHand from "./PlayerHand";
+import EndScreen from "./endScreen";
 
 function Board() {
   const [dealerHand, setDealer] = useState<Hand | null>(null);
   const [playerHand, setPlayer] = useState<Hand | null>(null);
-  const [status, setStatus] = useState<GameStatus | null>(null);
-  const [isActive, setActive] = useState<Boolean>(false);
+  const [status, setStatus] = useState<GameStatus>(GameStatus.Playing);
+  const [dealerIsPlaying, setDealerIsPlaying] = useState<Boolean>(false);
+  const [isActiveGame, setActiveGame] = useState<Boolean>(false);
 
   const startGame = async () => {
     const res = await fetch("http://localhost:3000/game/start", {
@@ -19,7 +23,8 @@ function Board() {
     setDealer(gameState.dealerHand);
     setPlayer(gameState.playerHand);
     setStatus(gameState.status);
-    setActive(true);
+    setActiveGame(true);
+    setDealerIsPlaying(false);
     console.log(gameState);
   };
   const hitGame = async () => {
@@ -38,6 +43,7 @@ function Board() {
     const gameState: GameState = await res.json();
     setDealer(gameState.dealerHand);
     setStatus(gameState.status);
+    setDealerIsPlaying(true);
     console.log(gameState);
   };
   const doubleGame = async () => {
@@ -48,17 +54,26 @@ function Board() {
     setDealer(gameState.dealerHand);
     setPlayer(gameState.playerHand);
     setStatus(gameState.status);
+    setDealerIsPlaying(true);
     console.log(gameState);
   };
   const restartGame = () => {
-    setActive(false);
+    setActiveGame(false);
+    setDealer(null);
+    setPlayer(null);
     console.log("restart");
   };
   return (
     <div className="main-container">
+      <div className="table-container">
+        <img src="/assets/table2.png" className="table" />
+      </div>
       <GameButtons hit={hitGame} stand={standGame} double={doubleGame} />
-      <Start start={startGame} isActive={isActive} />
+      <Start start={startGame} isActive={isActiveGame} />
       <Restart restart={restartGame} />
+      <DealerHand dealerIsPlaying={dealerIsPlaying} dealerHand={dealerHand} />
+      <PlayerHand playerHand={playerHand} />
+      <EndScreen status={status} />
     </div>
   );
 }

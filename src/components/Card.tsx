@@ -1,8 +1,13 @@
-import { useEffect, useState } from "react";
-interface cardProps {}
-function Card() {
-  const [cardValue, setValue] = useState(null);
-  const [cardRank, setRank] = useState(null);
-  return <></>;
+import { useState } from "react";
+import "../css/card.css";
+interface cardProps {
+  src: string;
+}
+function Card({ src }: cardProps) {
+  return (
+    <div className="card-background">
+      <img src={src} />
+    </div>
+  );
 }
 export default Card;

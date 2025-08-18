@@ -1,5 +1,7 @@
+import type { Hand } from "../types/types";
 interface hitProps {
   hit: () => void;
+  setDealer: (param1: Hand) => void;
 }
 function Hit({ hit }: hitProps) {
   return (

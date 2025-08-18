@@ -1,0 +1,7 @@
+.dealer-hand-container {
+  display: flex;
+  position: fixed;
+  top: 27%;
+  left: 41%;
+  gap: 1rem;
+}

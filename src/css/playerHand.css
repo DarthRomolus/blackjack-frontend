@@ -1,0 +1,9 @@
+.player-hand-container {
+  display: flex;
+  position: fixed;
+  top: 55%;
+  left: 41%;
+  gap: 1rem;
+  z-index: 0;
+  justify-content: center;
+}
