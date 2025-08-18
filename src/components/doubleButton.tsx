@@ -3,8 +3,10 @@ interface doubleProps {
 }
 function Double({ double }: doubleProps) {
   return (
-    <div className="start-button-main">
-      <button onClick={double}>double</button>
+    <div className="double-button-main">
+      <button onClick={double} className="game-buttons">
+        <img src="/assets/double-point.png" />
+      </button>
     </div>
   );
 }

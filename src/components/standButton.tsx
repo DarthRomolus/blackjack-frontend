@@ -3,8 +3,10 @@ interface standProps {
 }
 function Stand({ stand }: standProps) {
   return (
-    <div className="start-button-main">
-      <button onClick={stand}>stand</button>
+    <div className="stand-button-main">
+      <button onClick={stand} className="game-buttons">
+        <img src="/assets/stop-sign.png" />
+      </button>
     </div>
   );
 }

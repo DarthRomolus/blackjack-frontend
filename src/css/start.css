@@ -1,0 +1,13 @@
+.start-button {
+  background: rgba(255, 255, 255, 0.2); /* semi-transparent */
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  border: none;
+  font-size: 5rem;
+}
+.game-active {
+  display: none;
+}

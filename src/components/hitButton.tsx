@@ -3,8 +3,10 @@ interface hitProps {
 }
 function Hit({ hit }: hitProps) {
   return (
-    <div className="start-button-main">
-      <button onClick={hit}>hit</button>
+    <div className="hit-button-main">
+      <button onClick={hit} className="game-buttons">
+        <img src="/assets/hit.png" />
+      </button>
     </div>
   );
 }

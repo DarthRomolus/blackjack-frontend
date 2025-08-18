@@ -1,10 +1,14 @@
+import "../css/start.css";
 interface startProps {
   start: () => void;
+  isActive: Boolean;
 }
-function Start({ start }: startProps) {
+function Start({ start, isActive }: startProps) {
   return (
-    <div className="start-button-main">
-      <button onClick={start}>start</button>
+    <div className={isActive ? "game-active" : "start-button-main"}>
+      <button onClick={start} className="start-button">
+        start
+      </button>
     </div>
   );
 }

@@ -1,0 +1,17 @@
+.game-buttons-main {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  position: fixed;
+  bottom: 2rem;
+  left: 43%;
+}
+.game-buttons {
+  border-radius: 8px;
+  border: 0.2rem dashed rgb(4, 70, 4);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  background-color: #1a970a9a;
+  cursor: pointer;
+  opacity: 80%;
+}
