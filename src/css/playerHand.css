@@ -2,10 +2,20 @@
   display: flex;
   position: fixed;
   top: 55%;
-  left: 50%;
+  left: 48%;
   gap: 1rem;
   transform: translateX(-50%);
 
   justify-content: center;
   align-items: center;
+}
+.player-sum {
+  height: 3rem;
+  width: 3rem;
+  background-image: url("/assets/ace-of-spades.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 1rem;
+  font-weight: 400;
+  transform: rotate(-20deg);
 }

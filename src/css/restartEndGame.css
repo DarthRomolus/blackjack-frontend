@@ -1,0 +1,12 @@
+.restart-button-end-game {
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  padding: 1rem 1.2rem;
+  font-size: 1em;
+  background-color: #0e19bd4b;
+  cursor: pointer;
+}
+.restart-button-end-game:hover {
+  filter: brightness(120%) drop-shadow(0.5rem 0.5rem 1rem #171bdfa4)
+    drop-shadow(-0.5rem -0.5rem 1rem #171bdfa4);
+}

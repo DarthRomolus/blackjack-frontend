@@ -1,7 +1,7 @@
 import "../css/start.css";
 interface startProps {
   start: () => void;
-  isActive: Boolean;
+  isActive: boolean;
 }
 function Start({ start, isActive }: startProps) {
   return (

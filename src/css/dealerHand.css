@@ -1,11 +1,41 @@
 .dealer-hand-container {
   display: flex;
+  flex-direction: column;
+  top: 2%;
+  left: 46%;
   position: fixed;
-  top: 27%;
-  left: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.dealer-hand-cards {
+  display: flex;
+  position: fixed;
   gap: 1rem;
   transform: translateX(-50%);
+  top: 25%;
+  left: 50%;
 
   justify-content: center;
   align-items: center;
+}
+.dealer-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.dealer-sum {
+  border: 0 solid transparent;
+  border-radius: 100%;
+  position: fixed;
+  top: 8%;
+  left: 45%;
+  height: 2rem;
+  width: 2rem;
+  padding: 1rem;
+  background-image: url("/assets/casino-chip.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 1rem;
+  font-weight: 400;
+  transform: rotate(-20deg);
 }

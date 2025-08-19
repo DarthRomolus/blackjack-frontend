@@ -1,6 +1,6 @@
 interface doubleProps {
   double: () => void;
-  isDoubleAllowed: Boolean;
+  isDoubleAllowed: boolean;
 }
 function Double({ double, isDoubleAllowed }: doubleProps) {
   return (

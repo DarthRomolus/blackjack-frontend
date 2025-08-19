@@ -7,8 +7,8 @@ interface gameButtonProps {
   hit: () => void;
   stand: () => void;
   double: () => void;
-  dealerIsPlaying: Boolean;
-  isDoubleAllowed: Boolean;
+  dealerIsPlaying: boolean;
+  isDoubleAllowed: boolean;
 }
 function GameButtons({
   hit,

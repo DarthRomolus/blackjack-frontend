@@ -3,7 +3,7 @@ import Card from "./Card";
 import "../css/dealerHand.css";
 interface dealerHandProps {
   dealerHand: Hand | null;
-  dealerIsPlaying: Boolean;
+  dealerIsPlaying: boolean;
 }
 function DealerHand({ dealerHand, dealerIsPlaying }: dealerHandProps) {
   let src = null;
@@ -18,24 +18,31 @@ function DealerHand({ dealerHand, dealerIsPlaying }: dealerHandProps) {
   }
   return (
     <div className="dealer-hand-container">
-      {/*<div className="dealer-sum">{dealerIsPlaying ? dealerHand.sum : "?"}</div>-->*/}
-      <Card
-        isNewCard={true}
-        isDealer={true}
-        src={src}
-        key={`${dealerHand.handCards[0].rank}+${dealerHand.handCards[0].suit}_dealer`}
-      />
-      {dealerHand.handCards.slice(1).map((card) => {
-        index++;
-        return (
-          <Card
-            isNewCard={true}
-            isDealer={true}
-            src={`/assets/cards/${card.rank}_of_${card.suit}.png`}
-            key={`${card.rank}+${card.suit}_dealer`}
-          />
-        );
-      })}
+      <div className="dealer-icon">
+        <img src="/assets/dealer.png" />
+        <span className="dealer-sum">
+          {dealerIsPlaying ? dealerHand.sum : "?"}
+        </span>
+      </div>
+      <div className="dealer-hand-cards">
+        <Card
+          isNewCard={true}
+          isDealer={true}
+          src={src}
+          key={`${dealerHand.handCards[0].rank}+${dealerHand.handCards[0].suit}_dealer`}
+        />
+        {dealerHand.handCards.slice(1).map((card) => {
+          index++;
+          return (
+            <Card
+              isNewCard={true}
+              isDealer={true}
+              src={`/assets/cards/${card.rank}_of_${card.suit}.png`}
+              key={`${card.rank}+${card.suit}_dealer`}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

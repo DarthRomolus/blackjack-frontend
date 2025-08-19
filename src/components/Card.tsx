@@ -2,11 +2,11 @@ import { useState } from "react";
 import "../css/card.css";
 interface cardProps {
   src: string;
-  isNewCard: Boolean;
-  isDealer: Boolean;
+  isNewCard: boolean;
+  isDealer: boolean;
 }
 function Card({ src, isNewCard, isDealer }: cardProps) {
-  const [isNew, setIsnew] = useState<Boolean>(isNewCard);
+  const [isNew, setIsnew] = useState<boolean>(isNewCard);
   return (
     <div
       className={`card-main ${

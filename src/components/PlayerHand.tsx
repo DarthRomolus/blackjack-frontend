@@ -11,7 +11,7 @@ function PlayerHand({ playerHand }: playerHandProps) {
   }
   return (
     <div className="player-hand-container">
-      {/*<div className="player-sum">{playerHand.sum}</div>*/}
+      <div className="player-sum">{playerHand.sum}</div>
       {playerHand.handCards.map((card) => {
         index++;
         return (

@@ -1,0 +1,14 @@
+.deck-container {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  right: 20%;
+  top: 70%;
+  background-image: url("/assets/deck.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 5rem;
+  height: 7rem;
+  z-index: 1000;
+}
