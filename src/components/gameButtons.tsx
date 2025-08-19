@@ -7,13 +7,21 @@ interface gameButtonProps {
   hit: () => void;
   stand: () => void;
   double: () => void;
+  dealerIsPlaying: Boolean;
+  isDoubleAllowed: Boolean;
 }
-function GameButtons({ hit, stand, double }: gameButtonProps) {
+function GameButtons({
+  hit,
+  stand,
+  double,
+  dealerIsPlaying,
+  isDoubleAllowed,
+}: gameButtonProps) {
   return (
-    <div className="game-buttons-main">
+    <div className={dealerIsPlaying ? "none" : "game-buttons-main"}>
       <Hit hit={hit} />
       <Stand stand={stand} />
-      <Double double={double} />
+      <Double double={double} isDoubleAllowed={isDoubleAllowed} />
     </div>
   );
 }

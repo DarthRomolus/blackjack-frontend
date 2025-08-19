@@ -2,8 +2,10 @@
   display: flex;
   position: fixed;
   top: 55%;
-  left: 41%;
+  left: 50%;
   gap: 1rem;
-  z-index: 0;
+  transform: translateX(-50%);
+
   justify-content: center;
+  align-items: center;
 }

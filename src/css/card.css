@@ -1,13 +1,52 @@
-.card-background {
+.card-main {
   background-color: rgb(221, 219, 219);
   border-radius: 0.5rem;
-  filter: brightness(70%);
   box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.822);
   filter: blur(10%);
   display: flex;
   align-items: center;
   padding: 0.1rem;
 }
-.card-background img {
+.card-dealer--new {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.822);
+  filter: blur(10%);
+  display: flex;
+  align-items: center;
+  padding: 0.1rem;
+  animation: slide-dealer ease-out forwards;
+  animation-duration: 1s;
+}
+.card-player--new {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.822);
+  filter: blur(10%);
+  display: flex;
+  align-items: center;
+  padding: 0.1rem;
+  animation: slide-player ease-out forwards;
+  animation-duration: 1s;
+}
+.card-main img {
   width: 8rem;
+}
+@keyframes slide-dealer {
+  0% {
+    transform: rotate(-100deg) translateY(-100vh) translateX(50vh);
+  }
+  100% {
+    transform: rotate(0deg);
+    transform: translateY(0);
+  }
+}
+@keyframes slide-player {
+  0% {
+    transform: rotate(100deg) translateY(-100vh) translateX(50vh);
+  }
+  100% {
+    transform: rotate(0deg);
+    transform: translateY(0);
+  }
 }

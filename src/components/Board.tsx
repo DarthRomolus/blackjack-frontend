@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GameStatus, type Hand, type GameState } from "../types/types";
 import GameButtons from "./gameButtons";
 import "../css/Board.css";
@@ -14,6 +14,14 @@ function Board() {
   const [status, setStatus] = useState<GameStatus>(GameStatus.Playing);
   const [dealerIsPlaying, setDealerIsPlaying] = useState<Boolean>(false);
   const [isActiveGame, setActiveGame] = useState<Boolean>(false);
+  const [doubleAllowed, setDoubleAllowed] = useState<Boolean>(true);
+
+  useEffect(() => {
+    if (status === GameStatus.Blackjack || status === GameStatus.Busted) {
+      standGame();
+      console.log("called stand");
+    }
+  }, [status]);
 
   const startGame = async () => {
     const res = await fetch("http://localhost:3000/game/start", {
@@ -25,8 +33,13 @@ function Board() {
     setStatus(gameState.status);
     setActiveGame(true);
     setDealerIsPlaying(false);
+    setDoubleAllowed(true);
     console.log(gameState);
+    if (gameState.status === GameStatus.Blackjack) {
+      standGame();
+    }
   };
+
   const hitGame = async () => {
     const res = await fetch("http://localhost:3000/game/hit", {
       method: "POST",
@@ -34,8 +47,10 @@ function Board() {
     const gameState: GameState = await res.json();
     setPlayer(gameState.playerHand);
     setStatus(gameState.status);
+    setDoubleAllowed(false);
     console.log(gameState);
   };
+
   const standGame = async () => {
     const res = await fetch("http://localhost:3000/game/stand", {
       method: "POST",
@@ -46,6 +61,7 @@ function Board() {
     setDealerIsPlaying(true);
     console.log(gameState);
   };
+
   const doubleGame = async () => {
     const res = await fetch("http://localhost:3000/game/double", {
       method: "POST",
@@ -57,6 +73,7 @@ function Board() {
     setDealerIsPlaying(true);
     console.log(gameState);
   };
+
   const restartGame = () => {
     setActiveGame(false);
     setDealer(null);
@@ -68,12 +85,22 @@ function Board() {
       <div className="table-container">
         <img src="/assets/table2.png" className="table" />
       </div>
-      <GameButtons hit={hitGame} stand={standGame} double={doubleGame} />
+      <GameButtons
+        hit={hitGame}
+        stand={standGame}
+        double={doubleGame}
+        dealerIsPlaying={dealerIsPlaying}
+        isDoubleAllowed={doubleAllowed}
+      />
       <Start start={startGame} isActive={isActiveGame} />
       <Restart restart={restartGame} />
       <DealerHand dealerIsPlaying={dealerIsPlaying} dealerHand={dealerHand} />
       <PlayerHand playerHand={playerHand} />
-      <EndScreen status={status} />
+      <EndScreen
+        status={status}
+        isActiveGame={isActiveGame}
+        restart={restartGame}
+      />
     </div>
   );
 }

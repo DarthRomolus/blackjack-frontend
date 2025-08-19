@@ -7,6 +7,7 @@ interface dealerHandProps {
 }
 function DealerHand({ dealerHand, dealerIsPlaying }: dealerHandProps) {
   let src = null;
+  let index = 0;
   if (dealerHand === null) {
     return <></>;
   }
@@ -17,17 +18,24 @@ function DealerHand({ dealerHand, dealerIsPlaying }: dealerHandProps) {
   }
   return (
     <div className="dealer-hand-container">
-      <div className="dealer-sum">{dealerHand.sum}</div>
+      {/*<div className="dealer-sum">{dealerIsPlaying ? dealerHand.sum : "?"}</div>-->*/}
       <Card
+        isNewCard={true}
+        isDealer={true}
         src={src}
         key={`${dealerHand.handCards[0].rank}+${dealerHand.handCards[0].suit}_dealer`}
       />
-      {dealerHand.handCards.slice(1).map((card) => (
-        <Card
-          src={`/assets/cards/${card.rank}_of_${card.suit}.png`}
-          key={`${card.rank}+${card.suit}_dealer`}
-        />
-      ))}
+      {dealerHand.handCards.slice(1).map((card) => {
+        index++;
+        return (
+          <Card
+            isNewCard={true}
+            isDealer={true}
+            src={`/assets/cards/${card.rank}_of_${card.suit}.png`}
+            key={`${card.rank}+${card.suit}_dealer`}
+          />
+        );
+      })}
     </div>
   );
 }
