@@ -7,10 +7,11 @@
 .table-container {
   position: fixed;
   top: 15%;
-  left: 5%;
+  left: 3%;
 }
 .table {
   height: 40rem;
+  width: 90rem;
   filter: drop-shadow(0.5rem 0.5rem 1rem #0000008a)
     drop-shadow(-0.5rem -0.5rem 1rem #0000008a)
     drop-shadow(0.5rem 0.5rem 3rem #0000008a inset);
